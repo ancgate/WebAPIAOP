@@ -8,6 +8,7 @@ using WebApiAOP.Helper;
 using WebApiAOP.Repositories.Interface;
 using WebApiAOP.Repositories;
 using System.Collections.Generic;
+using log4net;
 
 namespace WebApiAOP.App_Start
 {
@@ -63,6 +64,8 @@ namespace WebApiAOP.App_Start
                 , new HierarchicalLifetimeManager()
                 , new Interceptor<InterfaceInterceptor>() //Interception technique
                 , new InterceptionBehavior<ProfilingInterceptionBehavior>());
+
+          //  container.Value.RegisterType<ILog>();
 
         }
     }

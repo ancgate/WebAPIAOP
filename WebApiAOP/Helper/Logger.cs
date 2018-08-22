@@ -24,12 +24,12 @@ namespace WebApiAOP.Helper
 
         private static string GetLogLevelProperty()
         {
-            return LogFile;
+            return @"P:\Users\jefferson.bienaime\source\log\wepapi.log";
         }
 
         private static string GetLoggingFileProperty()
         {
-            return LogLevel;
+            return "All";
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace WebApiAOP.Helper
         public static void Setup()
         {
             var hierarchy = (Hierarchy)LogManager.GetRepository();
-            var level = hierarchy.LevelMap[LogLevel] ?? Level.Off;
+            var level = hierarchy.LevelMap[LogLevel] ?? Level.All;
 
             var patternLayout = new PatternLayout { ConversionPattern = "%date [%thread] %-6level %logger – %message%exception%newline" };
             patternLayout.ActivateOptions();
@@ -46,7 +46,7 @@ namespace WebApiAOP.Helper
             var roller = new RollingFileAppender
             {
                 AppendToFile = true,
-                File = "C:\\logs\\", //LogFile
+                File = @"P:\Users\jefferson.bienaime\source\log\wepapi.log", //LogFile
                 RollingStyle = RollingFileAppender.RollingMode.Composite,
                 DatePattern = ".yyyyMMdd",
                 MaxSizeRollBackups = 10,

@@ -11,8 +11,9 @@ namespace WebApiAOP.Helper
 {
     public class ProfilingInterceptionBehavior : IInterceptionBehavior
     {
-        [Dependency]
-        public ILog Log { get; set; }
+        
+        private readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public bool WillExecute
         {
             get { return true; }

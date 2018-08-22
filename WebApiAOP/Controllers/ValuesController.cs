@@ -12,6 +12,8 @@ namespace WebApiAOP.Controllers
     [LogActionWebApiFilter]
     public class ValuesController : ApiController
     {
+
+
         // GET api/values
         public IEnumerable<string> Get()
         {

@@ -14,8 +14,8 @@ namespace WebApiAOP.Action_Filters
         /// <summary>
         /// Instance of the Log4Net log.
         /// </summary>
-        [Dependency]  //Part 1
-        public ILog log { get; set; }
+         //Part 1
+        private readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
 
 

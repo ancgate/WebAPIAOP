@@ -36,6 +36,8 @@ namespace WebApiAOP.App_Start
 
             foreach (var filter in filters)
             {
+                var u = filter.Instance.GetType();
+                var v = filter.Instance;
                 container.BuildUp(filter.Instance.GetType(), filter.Instance);
             }
 
